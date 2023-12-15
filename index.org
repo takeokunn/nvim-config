@@ -1,0 +1,52 @@
+#+TITLE: Configurations for Neovim
+#+AUTHOR: takeokunn
+#+EMAIL: bararararatty@gmail.com
+#+STARTUP: content
+#+STARTUP: fold
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://www.pirilampo.org/styles/readtheorg/css/htmlize.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://www.pirilampo.org/styles/readtheorg/css/readtheorg.css"/>
+#+HTML_HEAD: <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+#+HTML_HEAD: <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="https://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="https://www.pirilampo.org/styles/readtheorg/js/readtheorg.js"></script>
+* はじめに
+** 基本情報
+
+- repo: [[http://github.com/takeokunn/nvim-config][takeokunn/nvim-config]]
+- twitter: [[https://twitter.com/takeokunn][たけてぃ@takeokunn]]
+- blog: [[https://takeokunn.org][https://takeokunn.org]]
+
+* Initialize
+** Basic
+#+begin_src vimrc
+  set encoding=utf-8
+  set fileencodings=utf-8,euc-jp,cp932
+  set clipboard+=unnamed
+  set backspace=2
+  set tabstop=2
+  set shiftwidth=2
+  set laststatus=2
+  set statusline=%y
+  set showmatch
+  set wrapscan
+  set hlsearch
+  set showcmd
+  set title
+  set number relativenumber
+  set cursorline
+  set nofoldenable
+  set noswapfile
+  set expandtab
+  set splitbelow
+  set splitright
+  set incsearch
+  set ignorecase
+  set smartcase
+
+  nnoremap / /\v
+  nnoremap <Leader><Leader> V
+  nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
+
+  syntax on
+  filetype plugin indent on
+#+end_src
