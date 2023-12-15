@@ -137,12 +137,21 @@ OSのクリップボードを使う
 * Plugins
 ** bootstrap
 *** denops
+
+| repo                  | descripion                                                                   |
+|-----------------------+------------------------------------------------------------------------------|
+| [[https://github.com/vim-denops/denops.vim][vim-denops/denops.vim]] | An ecosystem of Vim/Neovim which allows developers to write plugins in Deno. |
+
 #+begin_src toml :tangle (expand-file-name "~/.config/nvim/dein.toml") :mkdirp yes :noweb yes
   [[plugins]]
   repo = "vim-denops/denops.vim"
 #+end_src
 ** lazy
-*** [[https://github.com/mattn/vim-sl][mattn/vim-sl]]
+*** vim-sl
+
+| repo         | descripion |
+|--------------+------------|
+| [[https://github.com/mattn/vim-sl][mattn/vim-sl]] | sl command |
 
 Run =call sl#animate()= .
 
