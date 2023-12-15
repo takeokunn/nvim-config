@@ -3,7 +3,14 @@
 * neovim config
 
 takeokunn's neovim configuration.
+
 ** Setup
+
+#+begin_src console
+  $ make link
+  $ make compile
+#+end_src
+
 ** Configuration
 
 - [[file:index.org][index.org]]
