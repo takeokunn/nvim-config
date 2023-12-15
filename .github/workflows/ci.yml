@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  workflow_call:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: latest
+          cache: npm
+      - name: npm ci
+        run: npm ci
+      - name: Run secretlint
+        run: npm run lint:secret

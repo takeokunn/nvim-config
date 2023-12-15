@@ -1,3 +1,4 @@
 public/
 init.vim
 htmlize.el
+node_modules/
