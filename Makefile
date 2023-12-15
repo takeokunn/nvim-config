@@ -12,4 +12,4 @@ link:
 
 .PHONY: compile
 compile:
-	$(EMACS) -Q --batch --eval "(progn (require 'ob-tangle) (org-babel-tangle-file \"./index.org\" \"./init.vim\" \"vim\"))"
+	$(EMACS) -Q --batch --eval "(progn (require 'ob-tangle) (org-babel-tangle-file \"./index.org\" \"./init.vim\" \"vimrc\"))"
