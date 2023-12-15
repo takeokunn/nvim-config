@@ -1,0 +1,9 @@
+#+STARTUP: content
+#+STARTUP: fold
+* neovim config
+
+takeokunn's neovim configuration.
+** Setup
+** Configuration
+
+- [[file:index.org][index.org]]
