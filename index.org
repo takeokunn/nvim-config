@@ -18,7 +18,7 @@
 
 * Initialize
 ** Basic
-#+begin_src vimrc
+#+begin_src vim
   set encoding=utf-8
   set fileencodings=utf-8,euc-jp,cp932
   set clipboard+=unnamed
