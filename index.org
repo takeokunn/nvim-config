@@ -18,32 +18,26 @@
 
 * Initialize
 ** Basic
+*** compatible
+#+begin_src vimrc :tangle (expand-file-name "~/.config/nvim/init.vim") :mkdirp yes :noweb yes
+  if &compatible
+    set nocompatible
+  endif
+#+end_src
 *** encoding
-
-エンコーディング指定
-
 #+begin_src vimrc :tangle (expand-file-name "~/.config/nvim/init.vim") :mkdirp yes :noweb yes
   set encoding=utf-8
   set fileencodings=utf-8,euc-jp,cp932
 #+end_src
 *** syntax
-
-シンタックスハイライト
-
 #+begin_src vimrc :tangle (expand-file-name "~/.config/nvim/init.vim") :mkdirp yes :noweb yes
   syntax on
 #+end_src
 *** clipboard
-
-OSのクリップボードを使う
-
 #+begin_src vimrc :tangle (expand-file-name "~/.config/nvim/init.vim") :mkdirp yes :noweb yes
   set clipboard+=unnamed
 #+end_src
 *** line number
-
-行番号を相対値で表示
-
 #+begin_src vimrc :tangle (expand-file-name "~/.config/nvim/init.vim") :mkdirp yes :noweb yes
   set number relativenumber
 #+end_src
@@ -78,15 +72,56 @@ OSのクリップボードを使う
   set ignorecase
   set smartcase
 #+end_src
-*** keymap
-#+begin_src vimrc :tangle (expand-file-name "~/.config/nvim/init.vim") :mkdirp yes :noweb yes
-  nnoremap / /\v
-  nnoremap <Leader><Leader> V
-  nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
-#+end_src
 *** filetype
 #+begin_src vimrc :tangle (expand-file-name "~/.config/nvim/init.vim") :mkdirp yes :noweb yes
   filetype plugin indent on
+#+end_src
+*** highlight
+#+begin_src vimrc :tangle (expand-file-name "~/.config/nvim/init.vim") :mkdirp yes :noweb yes
+  highlight clear CursorLine
+
+  highlight Normal ctermbg=none
+  highlight NonText ctermbg=none
+  highlight LineNr ctermbg=none
+  highlight Folded ctermbg=none
+  highlight EndOfBuffer ctermbg=none
+#+end_src
+** Keymap
+*** mapleader
+#+begin_src vimrc :tangle (expand-file-name "~/.config/nvim/init.vim") :mkdirp yes :noweb yes
+  let mapleader = ','
+#+end_src
+*** basic
+#+begin_src vimrc :tangle (expand-file-name "~/.config/nvim/init.vim") :mkdirp yes :noweb yes
+  nmap / /\v
+
+  vnoremap < <gv
+  vnoremap > >gv
+
+  inoremap jh <Esc>
+  nnoremap <Leader>p "+p
+  nmap <Esc><Esc> :nohlsearch<CR><Esc>
+
+  nnoremap <silent> <c-j> 10gj
+  nnoremap <silent> <c-k> 10gk
+  nnoremap <silent><expr> * v:count ? '*' : ':sil exe "keepj norm! *" <Bar> call winrestview(' . string(winsaveview()) . ')<CR>'
+#+end_src
+*** window
+#+begin_src vimrc :tangle (expand-file-name "~/.config/nvim/init.vim") :mkdirp yes :noweb yes
+  nnoremap sj <C-w>j
+  nnoremap sk <C-w>k
+  nnoremap sl <C-w>l
+  nnoremap sh <C-w>h
+  nnoremap sJ <C-w>J
+  nnoremap sK <C-w>K
+  nnoremap sL <C-w>L
+  nnoremap sH <C-w>H
+  nnoremap sw <C-w>w
+#+end_src
+*** buffer
+#+begin_src vimrc :tangle (expand-file-name "~/.config/nvim/init.vim") :mkdirp yes :noweb yes
+  nnoremap <silent> sp :<C-u>bp<CR>
+  nnoremap <silent> sn :<C-u>bn<CR>
 #+end_src
 ** Dein
 *** setup
@@ -135,7 +170,7 @@ OSのクリップボードを使う
   endif
 #+end_src
 * Plugins
-** bootstrap
+** Bootstrap
 *** denops
 
 | repo                  | descripion                                                                   |
@@ -146,8 +181,19 @@ OSのクリップボードを使う
   [[plugins]]
   repo = "vim-denops/denops.vim"
 #+end_src
-** lazy
-*** vim-sl
+*** denops-hello
+
+| repo                             | descripion                     |
+|----------------------------------+--------------------------------|
+| [[https://github.com/vim-denops/denops-helloworld.vim][vim-denops/denops-helloworld.vim]] | Example plugins of denops.vim. |
+
+#+begin_src toml :tangle (expand-file-name "~/.config/nvim/dein.toml") :mkdirp yes :noweb yes
+  [[plugins]]
+  repo = "vim-denops/denops-helloworld.vim"
+#+end_src
+** Lazy
+*** Joke
+**** vim-sl
 
 | repo         | descripion |
 |--------------+------------|
@@ -158,4 +204,28 @@ Run =call sl#animate()= .
 #+begin_src toml :tangle (expand-file-name "~/.config/nvim/dein_lazy.toml") :mkdirp yes :noweb yes
   [[plugins]]
   repo = "mattn/vim-sl"
+#+end_src
+**** vim-redacted
+
+| repo               | descripion                    |
+|--------------------+-------------------------------|
+| [[https://github.com/dbmrq/vim-redacted][dbmrq/vim-redacted]] | The best way to ████ the ████ |
+
+#+begin_src toml :tangle (expand-file-name "~/.config/nvim/dein_lazy.toml") :mkdirp yes :noweb yes
+  [[plugins]]
+  repo = "dbmrq/vim-redacted"
+#+end_src
+*** Cursor
+**** vim-easymotion
+
+| repo                      | descripion                                                         |
+|---------------------------+--------------------------------------------------------------------|
+| [[https://github.com/easymotion/vim-easymotion][easymotion/vim-easymotion]] | EasyMotion provides a much simpler way to use some motions in vim. |
+
+#+begin_src toml :tangle (expand-file-name "~/.config/nvim/dein_lazy.toml") :mkdirp yes :noweb yes
+  [[plugins]]
+  repo = 'easymotion/vim-easymotion'
+  hook_source = '''
+  let g:EasyMotion_smartcase = 1
+  '''
 #+end_src
