@@ -18,35 +18,135 @@
 
 * Initialize
 ** Basic
-#+begin_src vimrc
+*** encoding
+
+エンコーディング指定
+
+#+begin_src vimrc :tangle (expand-file-name "~/.config/nvim/init.vim") :mkdirp yes :noweb yes
   set encoding=utf-8
   set fileencodings=utf-8,euc-jp,cp932
+#+end_src
+*** syntax
+
+シンタックスハイライト
+
+#+begin_src vimrc :tangle (expand-file-name "~/.config/nvim/init.vim") :mkdirp yes :noweb yes
+  syntax on
+#+end_src
+*** clipboard
+
+OSのクリップボードを使う
+
+#+begin_src vimrc :tangle (expand-file-name "~/.config/nvim/init.vim") :mkdirp yes :noweb yes
   set clipboard+=unnamed
+#+end_src
+*** line number
+
+行番号を相対値で表示
+
+#+begin_src vimrc :tangle (expand-file-name "~/.config/nvim/init.vim") :mkdirp yes :noweb yes
+  set number relativenumber
+#+end_src
+*** indent
+#+begin_src vimrc :tangle (expand-file-name "~/.config/nvim/init.vim") :mkdirp yes :noweb yes
   set backspace=2
   set tabstop=2
   set shiftwidth=2
+#+end_src
+*** status
+#+begin_src vimrc :tangle (expand-file-name "~/.config/nvim/init.vim") :mkdirp yes :noweb yes
   set laststatus=2
   set statusline=%y
+#+end_src
+*** split window
+#+begin_src vimrc :tangle (expand-file-name "~/.config/nvim/init.vim") :mkdirp yes :noweb yes
+  set title
+  set splitbelow
+  set splitright
+#+end_src
+*** util
+#+begin_src vimrc :tangle (expand-file-name "~/.config/nvim/init.vim") :mkdirp yes :noweb yes
   set showmatch
   set wrapscan
   set hlsearch
   set showcmd
-  set title
-  set number relativenumber
   set cursorline
   set nofoldenable
   set noswapfile
   set expandtab
-  set splitbelow
-  set splitright
   set incsearch
   set ignorecase
   set smartcase
-
+#+end_src
+*** keymap
+#+begin_src vimrc :tangle (expand-file-name "~/.config/nvim/init.vim") :mkdirp yes :noweb yes
   nnoremap / /\v
   nnoremap <Leader><Leader> V
   nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
-
-  syntax on
+#+end_src
+*** filetype
+#+begin_src vimrc :tangle (expand-file-name "~/.config/nvim/init.vim") :mkdirp yes :noweb yes
   filetype plugin indent on
+#+end_src
+** Dein
+*** setup
+#+begin_src vimrc :tangle (expand-file-name "~/.config/nvim/init.vim") :mkdirp yes :noweb yes
+  let $CACHE = expand('~/.cache')
+
+  if !($CACHE->isdirectory())
+    call mkdir($CACHE, 'p')
+  endif
+
+  if &runtimepath !~# '/dein.vim'
+    let s:dein_dir = 'dein.vim'->fnamemodify(':p')
+
+    if !(s:dein_dir->isdirectory())
+      let s:dein_dir = $CACHE .. '/dein/repos/github.com/Shougo/dein.vim'
+      if !(s:dein_dir->isdirectory())
+        execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
+      endif
+    endif
+
+    execute 'set runtimepath^=' .. s:dein_dir->fnamemodify(':p')->substitute('[/\\]$', '', '')
+  endif
+#+end_src
+*** config
+#+begin_src vimrc :tangle (expand-file-name "~/.config/nvim/init.vim") :mkdirp yes :noweb yes
+  let s:dein_dir = expand('~/.cache/dein')
+  let g:rc_dir = expand('~/.config/nvim')
+
+  if dein#load_state(s:dein_dir)
+    call dein#begin(s:dein_dir)
+
+    let s:toml = g:rc_dir . '/dein.toml'
+    let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
+
+    call dein#load_toml(s:toml, {'lazy': 0})
+    call dein#load_toml(s:lazy_toml, {'lazy': 1})
+
+    call dein#end()
+    call dein#save_state()
+  endif
+#+end_src
+*** install
+#+begin_src vimrc :tangle (expand-file-name "~/.config/nvim/init.vim") :mkdirp yes :noweb yes
+  if dein#check_install()
+    call dein#install()
+  endif
+#+end_src
+* Plugins
+** bootstrap
+*** denops
+#+begin_src toml :tangle (expand-file-name "~/.config/nvim/dein.toml") :mkdirp yes :noweb yes
+  [[plugins]]
+  repo = "vim-denops/denops.vim"
+#+end_src
+** lazy
+*** [[https://github.com/mattn/vim-sl][mattn/vim-sl]]
+
+Run =call sl#animate()= .
+
+#+begin_src toml :tangle (expand-file-name "~/.config/nvim/dein_lazy.toml") :mkdirp yes :noweb yes
+  [[plugins]]
+  repo = "mattn/vim-sl"
 #+end_src

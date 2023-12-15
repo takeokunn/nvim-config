@@ -1,4 +1,6 @@
 public/
-init.vim
-htmlize.el
 node_modules/
+htmlize.el
+init.vim
+dein.toml
+dein_lazy.toml
