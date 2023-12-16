@@ -229,6 +229,18 @@ Run =call sl#animate()= .
   '''
 #+end_src
 ** Language
+*** nvim-treesitter
+
+| repo                            | descripion         |
+|---------------------------------+--------------------|
+| [[https://github.com/nvim-treesitter/nvim-treesitter][nvim-treesitter/nvim-treesitter]] | Neovim Tree-Sitter |
+
+#+begin_src toml :tangle (expand-file-name "~/.config/nvim/dein_lazy.toml") :mkdirp yes :noweb yes
+  [[plugins]]
+  repo = 'nvim-treesitter/nvim-treesitter'
+  on_event = 'BufRead'
+  hook_post_update = 'TSUpdate'
+#+end_src
 *** vim-toml
 
 | repo             | descripion          |
@@ -283,4 +295,173 @@ Run =call sl#animate()= .
   [[plugins]]
   repo = 'posva/vim-vue'
   on_ft = ['vue']
+#+end_src
+*** vim-markdown
+
+| repo                   | descripion              |
+|------------------------+-------------------------|
+| [[https://github.com/preservim/vim-markdown][preservim/vim-markdown]] | Vim syntax for Markdown |
+
+#+begin_src toml :tangle (expand-file-name "~/.config/nvim/dein_lazy.toml") :mkdirp yes :noweb yes
+  [[plugins]]
+  repo = 'plasticboy/vim-markdown'
+  on_ft = ['markdown']
+  hook_add = '''
+  let g:vim_markdown_conceal = 0
+  '''
+#+end_src
+*** vim-json
+
+| repo          | descripion          |
+|---------------+---------------------|
+| [[https://github.com/elzr/vim-json][elzr/vim-json]] | Vim syntax for Json |
+
+#+begin_src toml :tangle (expand-file-name "~/.config/nvim/dein_lazy.toml") :mkdirp yes :noweb yes
+  [[plugins]]
+  repo = 'elzr/vim-json'
+  on_ft = ['json']
+  hook_source = '''
+  let g:vim_json_syntax_conceal = 0
+  '''
+#+end_src
+*** vim-fish
+
+| repo         | descripion          |
+|--------------+---------------------|
+| [[https://github.com/dag/vim-fish][dag/vim-fish]] | Vim syntax for Fish |
+
+#+begin_src toml :tangle (expand-file-name "~/.config/nvim/dein_lazy.toml") :mkdirp yes :noweb yes
+  [[plugins]]
+  repo = 'dag/vim-fish'
+  on_ft = ['fish']
+#+end_src
+*** vim-terraform
+
+| repo                   | descripion               |
+|------------------------+--------------------------|
+| [[https://github.com/hashivim/vim-terraform][hashivim/vim-terraform]] | Vim syntax for Terraform |
+
+#+begin_src toml :tangle (expand-file-name "~/.config/nvim/dein_lazy.toml") :mkdirp yes :noweb yes
+  [[plugins]]
+  repo = 'hashivim/vim-terraform'
+  on_ft = ['terraform']
+#+end_src
+*** vim-go
+
+| repo         | descripion        |
+|--------------+-------------------|
+| [[https://github.com/fatih/vim-go][fatih/vim-go]] | Vim syntax for Go |
+
+#+begin_src toml :tangle (expand-file-name "~/.config/nvim/dein_lazy.toml") :mkdirp yes :noweb yes
+  [[plugins]]
+  repo = 'fatih/vim-go'
+  on_ft = ['go']
+  hook_source = '''
+  let g:go_term_mode = 'split'
+  '''
+#+end_src
+*** typescript-vim
+
+| repo                       | descripion                |
+|----------------------------+---------------------------|
+| [[https://github.com/leafgarland/typescript-vim][leafgarland/typescript-vim]] | Vim syntax for TypeScript |
+
+#+begin_src toml :tangle (expand-file-name "~/.config/nvim/dein_lazy.toml") :mkdirp yes :noweb yes
+  [[plugins]]
+  repo = 'leafgarland/typescript-vim'
+  on_ft = ['typescript', 'typescriptreact']
+#+end_src
+*** vim-elisp
+
+| repo                | descripion               |
+|---------------------+--------------------------|
+| [[https://github.com/sherylynn/vim-elisp][sherylynn/vim-elisp]] | Vim syntax for EmacsLisp |
+
+#+begin_src toml :tangle (expand-file-name "~/.config/nvim/dein_lazy.toml") :mkdirp yes :noweb yes
+  [[plugins]]
+  repo = 'sherylynn/vim-elisp'
+#+end_src
+*** orgmode
+
+| repo                 | descripion         |
+|----------------------+--------------------|
+| [[https://github.com/nvim-orgmode/orgmode][nvim-orgmode/orgmode]] | Vim syntax for Org |
+
+#+begin_src toml :tangle (expand-file-name "~/.config/nvim/dein_lazy.toml") :mkdirp yes :noweb yes
+  [[plugins]]
+  repo = 'nvim-orgmode/orgmode'
+  depends = 'nvim-treesitter'
+  on_lua = 'orgmode'
+#+end_src
+*** vim-blade
+
+| repo                 | descripion           |
+|----------------------+----------------------|
+| [[https://github.com/jwalton512/vim-blade][jwalton512/vim-blade]] | Vim syntax for Blade |
+
+#+begin_src toml :tangle (expand-file-name "~/.config/nvim/dein_lazy.toml") :mkdirp yes :noweb yes
+  [[plugins]]
+  repo = 'jwalton512/vim-blade'
+  hook_source = '''
+  let g:blade_custom_directives_pairs = {
+        \   'markdown': 'endmarkdown',
+        \   'cache': 'endcache',
+        \ }
+  '''
+#+end_src
+*** vim-tmux-conf
+
+| repo                     | descripion               |
+|--------------------------+--------------------------|
+| [[https://github.com/0robustus1/vim-tmux-conf][0robustus1/vim-tmux-conf]] | Vim syntax for Tmux conf |
+
+#+begin_src toml :tangle (expand-file-name "~/.config/nvim/dein_lazy.toml") :mkdirp yes :noweb yes
+  [[plugins]]
+  repo = '0robustus1/vim-tmux-conf'
+  on_ft = ['tmuxconf']
+  hook_source = '''
+  au BufRead,BufNewFile dot.tmux.conf setf tmuxconf
+  '''
+#+end_src
+*** vim-prisma
+
+| repo              | descripion            |
+|-------------------+-----------------------|
+| [[https://github.com/prisma/vim-prisma][prisma/vim-prisma]] | Vim syntax for Prisma |
+
+#+begin_src toml :tangle (expand-file-name "~/.config/nvim/dein_lazy.toml") :mkdirp yes :noweb yes
+  [[plugins]]
+  repo = 'pantharshit00/vim-prisma'
+  on_ft = ['prisma']
+#+end_src
+** Language Specific
+*** Web
+**** emmet-vim
+
+| repo            | descripion       |
+|-----------------+------------------|
+| [[https://github.com/mattn/emmet-vim][mattn/emmet-vim]] | Emmet vim plugin |
+
+#+begin_src toml :tangle (expand-file-name "~/.config/nvim/dein_lazy.toml") :mkdirp yes :noweb yes
+  [[plugins]]
+  repo = 'mattn/emmet-vim'
+  hook_source = '''
+  let g:user_emmet_mode='a'
+  autocmd FileType html,css,blade EmmetInstall
+  '''
+#+end_src
+*** Go
+**** vim-goimports
+
+| repo                | descripion                       |
+|---------------------+----------------------------------|
+| [[https://github.com/mattn/vim-goimports][mattn/vim-goimports]] | Vim plugin for Minimalist Gopher |
+
+#+begin_src toml :tangle (expand-file-name "~/.config/nvim/dein_lazy.toml") :mkdirp yes :noweb yes
+  [[plugins]]
+  repo = 'mattn/vim-goimports'
+  on_ft = ['go']
+  hook_source = '''
+  let g:goimports_simplify = 1
+  '''
 #+end_src
