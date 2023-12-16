@@ -169,7 +169,7 @@
     call dein#install()
   endif
 #+end_src
-* Bootstrap Plugins
+* Bootstrap
 ** denops
 
 | repo                  | descripion                                                                   |
@@ -190,9 +190,8 @@
   [[plugins]]
   repo = "vim-denops/denops-helloworld.vim"
 #+end_src
-* Lazy Plugins
-** Joke
-*** vim-sl
+* Joke
+** vim-sl
 
 | repo         | descripion |
 |--------------+------------|
@@ -204,7 +203,7 @@ Run =call sl#animate()= .
   [[plugins]]
   repo = "mattn/vim-sl"
 #+end_src
-*** vim-redacted
+** vim-redacted
 
 | repo               | descripion                    |
 |--------------------+-------------------------------|
@@ -214,8 +213,8 @@ Run =call sl#animate()= .
   [[plugins]]
   repo = "dbmrq/vim-redacted"
 #+end_src
-** Cursor
-*** vim-easymotion
+* Cursor
+** vim-easymotion
 
 | repo                      | descripion                                                         |
 |---------------------------+--------------------------------------------------------------------|
@@ -228,7 +227,7 @@ Run =call sl#animate()= .
   let g:EasyMotion_smartcase = 1
   '''
 #+end_src
-*** vim-visual-multi
+** vim-visual-multi
 
 | repo                   | descripion                             |
 |------------------------+----------------------------------------|
@@ -238,7 +237,7 @@ Run =call sl#animate()= .
   [[plugins]]
   repo = 'mg979/vim-visual-multi'
 #+end_src
-*** vim-surround
+** vim-surround
 
 | repo               | descripion                                                        |
 |--------------------+-------------------------------------------------------------------|
@@ -248,8 +247,8 @@ Run =call sl#animate()= .
   [[plugins]]
   repo = 'tpope/vim-surround'
 #+end_src
-** Language
-*** nvim-treesitter
+* Language
+** nvim-treesitter
 
 | repo                            | descripion         |
 |---------------------------------+--------------------|
@@ -261,7 +260,7 @@ Run =call sl#animate()= .
   on_event = 'BufRead'
   hook_post_update = 'TSUpdate'
 #+end_src
-*** vim-toml
+** vim-toml
 
 | repo             | descripion          |
 |------------------+---------------------|
@@ -272,7 +271,7 @@ Run =call sl#animate()= .
   repo = 'cespare/vim-toml'
   on_ft = ['toml']
 #+end_src
-*** vim-ruby
+** vim-ruby
 
 | repo              | descripion          |
 |-------------------+---------------------|
@@ -283,7 +282,7 @@ Run =call sl#animate()= .
   repo = 'vim-ruby/vim-ruby'
   on_ft = ['ruby']
 #+end_src
-*** vim-javascript-syntax
+** vim-javascript-syntax
 
 | repo                         | descripion                |
 |------------------------------+---------------------------|
@@ -294,7 +293,7 @@ Run =call sl#animate()= .
   repo = 'jelera/vim-javascript-syntax'
   on_ft = ['javascript']
 #+end_src
-*** vim-css3-syntax
+** vim-css3-syntax
 
 | repo                   | descripion         |
 |------------------------+--------------------|
@@ -305,7 +304,7 @@ Run =call sl#animate()= .
   repo = 'hail2u/vim-css3-syntax'
   on_ft = ['css', 'scss', 'sass']
 #+end_src
-*** vim-vue
+** vim-vue
 
 | repo          | descripion         |
 |---------------+--------------------|
@@ -316,7 +315,7 @@ Run =call sl#animate()= .
   repo = 'posva/vim-vue'
   on_ft = ['vue']
 #+end_src
-*** vim-markdown
+** vim-markdown
 
 | repo                   | descripion              |
 |------------------------+-------------------------|
@@ -330,7 +329,7 @@ Run =call sl#animate()= .
   let g:vim_markdown_conceal = 0
   '''
 #+end_src
-*** vim-json
+** vim-json
 
 | repo          | descripion          |
 |---------------+---------------------|
@@ -344,7 +343,7 @@ Run =call sl#animate()= .
   let g:vim_json_syntax_conceal = 0
   '''
 #+end_src
-*** vim-fish
+** vim-fish
 
 | repo         | descripion          |
 |--------------+---------------------|
@@ -355,7 +354,7 @@ Run =call sl#animate()= .
   repo = 'dag/vim-fish'
   on_ft = ['fish']
 #+end_src
-*** vim-terraform
+** vim-terraform
 
 | repo                   | descripion               |
 |------------------------+--------------------------|
@@ -366,7 +365,7 @@ Run =call sl#animate()= .
   repo = 'hashivim/vim-terraform'
   on_ft = ['terraform']
 #+end_src
-*** vim-go
+** vim-go
 
 | repo         | descripion        |
 |--------------+-------------------|
@@ -380,7 +379,7 @@ Run =call sl#animate()= .
   let g:go_term_mode = 'split'
   '''
 #+end_src
-*** typescript-vim
+** typescript-vim
 
 | repo                       | descripion                |
 |----------------------------+---------------------------|
@@ -391,7 +390,7 @@ Run =call sl#animate()= .
   repo = 'leafgarland/typescript-vim'
   on_ft = ['typescript', 'typescriptreact']
 #+end_src
-*** vim-elisp
+** vim-elisp
 
 | repo                | descripion               |
 |---------------------+--------------------------|
@@ -401,7 +400,7 @@ Run =call sl#animate()= .
   [[plugins]]
   repo = 'sherylynn/vim-elisp'
 #+end_src
-*** orgmode
+** orgmode
 
 | repo                 | descripion         |
 |----------------------+--------------------|
@@ -413,7 +412,7 @@ Run =call sl#animate()= .
   depends = 'nvim-treesitter'
   on_lua = 'orgmode'
 #+end_src
-*** vim-blade
+** vim-blade
 
 | repo                 | descripion           |
 |----------------------+----------------------|
@@ -429,7 +428,7 @@ Run =call sl#animate()= .
         \ }
   '''
 #+end_src
-*** vim-tmux-conf
+** vim-tmux-conf
 
 | repo                     | descripion               |
 |--------------------------+--------------------------|
@@ -443,7 +442,7 @@ Run =call sl#animate()= .
   au BufRead,BufNewFile dot.tmux.conf setf tmuxconf
   '''
 #+end_src
-*** vim-prisma
+** vim-prisma
 
 | repo              | descripion            |
 |-------------------+-----------------------|
@@ -454,9 +453,9 @@ Run =call sl#animate()= .
   repo = 'pantharshit00/vim-prisma'
   on_ft = ['prisma']
 #+end_src
-** Language Specific
-*** Web
-**** emmet-vim
+* Language Specific
+** Web
+*** emmet-vim
 
 | repo            | descripion       |
 |-----------------+------------------|
@@ -470,8 +469,8 @@ Run =call sl#animate()= .
   autocmd FileType html,css,blade EmmetInstall
   '''
 #+end_src
-*** Go
-**** vim-goimports
+** Go
+*** vim-goimports
 
 | repo                | descripion                       |
 |---------------------+----------------------------------|
