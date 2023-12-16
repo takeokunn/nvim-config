@@ -228,6 +228,26 @@ Run =call sl#animate()= .
   let g:EasyMotion_smartcase = 1
   '''
 #+end_src
+*** vim-visual-multi
+
+| repo                   | descripion                             |
+|------------------------+----------------------------------------|
+| [[https://github.com/mg979/vim-visual-multi][mg979/vim-visual-multi]] | Multiple cursors plugin for vim/neovim |
+
+#+begin_src toml :tangle (expand-file-name "~/.config/nvim/dein_lazy.toml") :mkdirp yes :noweb yes
+  [[plugins]]
+  repo = 'mg979/vim-visual-multi'
+#+end_src
+*** vim-surround
+
+| repo               | descripion                                                        |
+|--------------------+-------------------------------------------------------------------|
+| [[https://github.com/tpope/vim-surround][tpope/vim-surround]] | Delete/change/add parentheses/quotes/XML-tags/much more with ease |
+
+#+begin_src toml :tangle (expand-file-name "~/.config/nvim/dein_lazy.toml") :mkdirp yes :noweb yes
+  [[plugins]]
+  repo = 'tpope/vim-surround'
+#+end_src
 ** Language
 *** nvim-treesitter
 
