@@ -10,7 +10,7 @@ jobs:
   actionlint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Run actionlint
         shell: bash
         run: |
@@ -19,7 +19,7 @@ jobs:
   secretlint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: setup Node.js
         uses: actions/setup-node@v6
         with:
