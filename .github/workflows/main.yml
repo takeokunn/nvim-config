@@ -19,7 +19,7 @@ jobs:
       - uses: purcell/setup-emacs@master
         with:
           version: 29.1
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       # for Build Html
       - name: wget htmlize
